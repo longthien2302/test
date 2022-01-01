@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Index class{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div>
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<div>
+    <a href="add_stc" class="btn btn-success">Add</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th scope="col">classID</th>
+        <th scope="col">classname</th>
+
+    </tr>
+
+    {% if STC %}
+    {% for stc in STC %}
+    <tr>
+        <td>{{stc.classID}}</td>
+        <td>{{stc.classname}}</td>
+        <td><a href="edit_stc/{{stc.id}}" class="btn btn-warning">Edit</a></td>
+        <td><a href="delete/{{stc.id}}" class="btn btn-warning">Delete</a></td>
+        {% endfor %}
+
+        {% else %}
+    <tr>
+        <td colspan="3">There is no list.</td>
+    </tr>
+    {% endif %}
+</table>
+
+{% endblock %}
