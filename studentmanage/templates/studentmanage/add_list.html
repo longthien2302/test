@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Add Lecturer{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+{% comment %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="form-floating mb-3">
+        <input type="text" placeholder="studentID" name="studentID" class="form-control border-success" required>
+        <label for="studentID">studentID</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        {{form.fullname}}
+        <label for="fullname">fullname</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        {{form.birthday}}
+        <label for="birthday">Birthday</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        {{form.email}}
+        <label for="email">Email</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        {{form.phone}}
+        <label for="phone">Phone</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        {{form.course}}
+        <label for="course">Course</label>
+    </div>
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+{% endcomment %}
+
+<div>
+    <a href="/index_list" class="btn btn-success mt-3">Back to Index</a>
+</div>
+
+{% endblock %}

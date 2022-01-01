@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Index class{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div>
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<div>
+    <a href="add_list/" class="btn btn-success">Add</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th scope="col">studentID</th>
+        <th scope="col">studentname</th>
+        <th scope="col">birthday</th>
+        <th scope="col">email</th>
+        <th scope="col">phone</th>
+        <th scope="col">course</th>
+
+    </tr>
+
+    {% if studentmanages %}
+    {% for studentmanage in studentmanages %}
+    <tr>
+        <td>{{studentmanage.studentID}}</td>
+        <td>{{studentmanage.fullname}}</td>
+        <td>{{studentmanage.birthday}}</td>
+        <td>{{studentmanage.email}}</td>
+        <td>{{studentmanage.phone}}</td>
+        <td>{{studentmanage.course}}</td>
+        <td><a href="edit/{{studentmanage.id}}" class="btn btn-warning">Edit</a></td>
+        <td><a href="delete/{{studentmanage.id}}" class="btn btn-warning">Delete</a></td>
+        {% endfor %}
+
+        {% else %}
+    <tr>
+        <td colspan="3">There is no list.</td>
+    </tr>
+    {% endif %}
+</table>
+
+{% endblock %}
