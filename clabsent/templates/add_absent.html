@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Add Lecturer{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+{% comment %}
+
+<form method="POST">
+    {% csrf_token %}
+
+
+    <div class="form-floating mb-3">
+        {{form.studentID}}
+        <label for="studentID">studentID</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        {{form.classname}}
+        <label for="classname">class</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        {{form.dateabsent}}
+        <label for="dateabsent">date absent</label>
+    </div>
+
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+{% endcomment %}
+
+<div>
+    <a href="/index_list" class="btn btn-success mt-3">Back to Index</a>
+</div>
+
+{% endblock %}

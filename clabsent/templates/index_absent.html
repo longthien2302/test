@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Index class{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div>
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<div>
+    <a href="add_absent" class="btn btn-success">Add</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th scope="col">studentID</th>
+        <th scope="col">class</th>
+        <th scope="col">date absent</th>
+
+
+    </tr>
+
+    {% if clabsents %}
+    {% for clabsent in clabsents %}
+    <tr>
+        <td>{{clabsent.studentID}}</td>
+        <td>{{clabsent.classname}}</td>
+        <td>{{clabsent.dateabsent}}</td>
+
+        <td><a href="edit/{{clabsent.id}}" class="btn btn-warning">Edit</a></td>
+        <td><a href="delete/{{clabsent.id}}" class="btn btn-warning">Delete</a></td>
+        {% endfor %}
+
+        {% else %}
+    <tr>
+        <td colspan="3">There is no list.</td>
+    </tr>
+    {% endif %}
+</table>
+
+{% endblock %}
